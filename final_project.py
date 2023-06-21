@@ -93,12 +93,23 @@ def get_student_form_number(std_number):
     return None
 
 
+def input_student_number():
+    # to make sure they enter a number
+    while True:
+        try:
+            student_number = int(input("Enter Student Number "))
+            break
+        except:
+            print("Enter a number")
+    return student_number
+
+
 while True:
     # TODO 9 handle Exception for selection input
 
     while True:
         try:
-            selection = int(input("1.Add New Student\n"
+            selection = int(input("\n1.Add New Student\n"
                                   "2.Delete Student\n"
                                   "3.Display Student\n"
                                   "4.Get Student Average\n"
@@ -107,59 +118,51 @@ while True:
             if (selection > 0) and (selection < 7):
                 break
             else:
-                print("Please enter a number from 1 to 6")
+                print(" >Please enter a number from 1 to 6")
         except:
-            print("Please enter a number from 1 to 6")
+            print(" >Please enter a number from 1 to 6")
 
     if selection == 1:
 
         # TODO 10 make sure that Student number is not exists before
         while True:
-            # to make sure they enter a number
-            while True:
-                try:
-                    student_number = int(input("Enter Student Number"))
-                    break
-                except:
-                    print("Enter a number")
+            student_number = input_student_number()
 
             if search_student_number(student_number):
-                print("student number already exist, enter new number")
+                print(" >student number already exist, enter new number")
             else:
                 break
 
-        student_name = input("Enter Student Name")
+        student_name = input("Enter Student Name ")
         while True:
             try:
-                student_age = int(input("Enter Student Age"))
+                student_age = int(input("Enter Student Age "))
                 break
             except:
-                print("Invalid Value")
+                print(" >Invalid Value")
 
         # TODO 11 create student object and append it to students list
         std1 = Student(student_name, student_age, student_number, [])
         students.append(std1)
-        print("Student Added Successfully")
+        print(" >Student Added Successfully")
 
     elif selection == 2:
-        while True:
-            try:
-                student_number = int(input("Enter Student Number"))
-                break
-            except:
-                print("Enter a number")
+        student_number = input_student_number()
 
         # TODO 12 find the target student using loops and delete it if exist , if not print ("Student Not Exist")
         if search_student_number(student_number):
             students.remove(get_student_form_number(student_number))
-            print("Student Deleted")
+            print(" >Student Deleted")
         else:
-            print("Student Not Exist")
-
+            print(" >Student Not Exist")
 
     elif selection == 3:
-        student_number = input("Enter Student Number")
-        # TODO 13 find the target student using loops and print student detials  if exist , if not print ("Student Not Exist")
+        student_number = input_student_number()
+
+        # TODO 13 find the target student using loops and print student details  if exist , if not print ("Student
+        #  Not Exist")
+        if search_student_number(student_number):
+            print(get_student_form_number(student_number).get_student_details())
 
     elif selection == 4:
         student_number = input("Enter Student Number")
