@@ -89,15 +89,34 @@ while True:
                                   "5.Add Course to student with mark.\n"
                                   "6.Exit\n"))
             if (selection > 0) and (selection < 7):
-                print("Please enter a number from 1 to 6")
                 break
+            else:
+                print("Please enter a number from 1 to 6")
         except:
             print("Please enter a number from 1 to 6")
 
     if selection == 1:
 
         # TODO 10 make sure that Student number is not exists before
-        student_number = input("Enter Student Number")
+        while True:
+            # to make sure they enter a number
+            while True:
+                try:
+                    student_number = int(input("Enter Student Number"))
+                    break
+                except:
+                    print("Enter a number")
+
+            std_number_exist = False
+            # loop over students list to look for similar student number
+            for std in students:
+                if student_number == std.student_number:
+                    print("student number already exist, enter new number")
+                    std_number_exist = True
+
+            # if we didn't find any match, we will get out of the loop
+            if not std_number_exist:
+                break
 
         student_name = input("Enter Student Name")
         while True:
