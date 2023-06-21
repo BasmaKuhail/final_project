@@ -167,8 +167,13 @@ while True:
             print(" >No such student")
 
     elif selection == 4:
-        student_number = input("Enter Student Number")
-        # TODO 14 find the target student using loops and get student average  if exist , if not print ("Student Not Exist")
+        student_number = input_student_number()
+        # TODO 14 find the target student using loops and get student average  if exist , if not print ("Student Not
+        #  Exist")
+        if search_student_number(student_number):
+            print(get_student_form_number(student_number).get_student_average())
+        else:
+            print(" >No such student")
 
     elif selection == 5:
         student_number = input("Enter Student Number")
