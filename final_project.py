@@ -73,6 +73,9 @@ class Student:
 
 # in Global Scope
 # TODO 8 declare empty students list
+# we will add objects of types Student in it
+students = []
+
 
 while True:
 
