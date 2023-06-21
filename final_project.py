@@ -58,7 +58,8 @@ class Student:
     # method to get_student_courses
     def get_student_courses(self):
         # TODO 6 print student courses with their marks
-        pass
+        for course in self.courses_list:
+            print(f"course name: {course.name}, course mark: {course.mark}")
 
     # method to get student_average as a value
     def get_student_average(self):
