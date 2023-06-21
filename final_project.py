@@ -76,16 +76,23 @@ class Student:
 # we will add objects of types Student in it
 students = []
 
-
 while True:
 
     # TODO 9 handle Exception for selection input
-    selection = int(input("1.Add New Student\n"
-                          "2.Delete Student\n"
-                          "3.Display Student\n"
-                          "4.Get Student Average\n"
-                          "5.Add Course to student with mark.\n"
-                          "6.Exit"))
+
+    while True:
+        try:
+            selection = int(input("1.Add New Student\n"
+                                  "2.Delete Student\n"
+                                  "3.Display Student\n"
+                                  "4.Get Student Average\n"
+                                  "5.Add Course to student with mark.\n"
+                                  "6.Exit\n"))
+            if (selection > 0) and (selection < 7):
+                print("Please enter a number from 1 to 6")
+                break
+        except:
+            print("Please enter a number from 1 to 6")
 
     if selection == 1:
 
