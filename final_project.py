@@ -176,8 +176,21 @@ while True:
             print(" >No such student")
 
     elif selection == 5:
-        student_number = input("Enter Student Number")
-        # TODO 15 ask user to enter course name and course mark then create coures object then append it to target student courses
+        student_number = input_student_number()
+        # TODO 15 ask user to enter course name and course mark then create course object then append it to target
+        #  student courses
+        if search_student_number(student_number):
+            course_name = input("Enter course name: ")
+            while True:
+                try:
+                    course_mark = int(input("Course mark: "))
+                    break
+                except:
+                    print(" >Enter a number")
+
+            get_student_form_number(student_number).enroll_course(course_name, course_mark)
+        else:
+            print(" >No such student")
 
     else:
         # TODO 16 call a function to exit the program
