@@ -194,4 +194,4 @@ while True:
 
     else:
         # TODO 16 call a function to exit the program
-        pass
+        break
