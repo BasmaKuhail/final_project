@@ -1,3 +1,5 @@
+import uuid
+
 """ITF 07 Final Project Attendance System
 # TODO 1 Enter your name and submission date
 Name : Basma M. Kuhail
@@ -9,6 +11,19 @@ Delivery Date : 22. June. 2023
 # course_id (generated using uuid4) ,
 # course name (user_input) and
 # course mark (user_input)
+
+
+class Course:
+    # counter = 1
+
+    def __init__(self, name, mark):
+        self.name = name
+        self.mark = mark
+        self.id = str(uuid.uuid4())
+        # another way: create a counter and update it each time we create an object:
+
+        # self.id = Course.counter
+        # Course.counter += 1
 
 
 class Student:
