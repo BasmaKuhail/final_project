@@ -163,6 +163,8 @@ while True:
         #  Not Exist")
         if search_student_number(student_number):
             print(get_student_form_number(student_number).get_student_details())
+        else:
+            print(" >No such student")
 
     elif selection == 4:
         student_number = input("Enter Student Number")
