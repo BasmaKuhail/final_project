@@ -76,8 +76,24 @@ class Student:
 # we will add objects of types Student in it
 students = []
 
-while True:
 
+def search_student_number(std_number):
+    std_number_exist = False
+    # loop over students list to look for similar student number
+    for std in students:
+        if std.student_number == std_number:
+            std_number_exist = True
+    return std_number_exist
+
+
+def get_student_form_number(std_number):
+    for std in students:
+        if std.student_number == std_number:
+            return std
+    return None
+
+
+while True:
     # TODO 9 handle Exception for selection input
 
     while True:
@@ -107,15 +123,9 @@ while True:
                 except:
                     print("Enter a number")
 
-            std_number_exist = False
-            # loop over students list to look for similar student number
-            for std in students:
-                if student_number == std.student_number:
-                    print("student number already exist, enter new number")
-                    std_number_exist = True
-
-            # if we didn't find any match, we will get out of the loop
-            if not std_number_exist:
+            if search_student_number(student_number):
+                print("student number already exist, enter new number")
+            else:
                 break
 
         student_name = input("Enter Student Name")
@@ -132,8 +142,20 @@ while True:
         print("Student Added Successfully")
 
     elif selection == 2:
-        student_number = input("Enter Student Number")
+        while True:
+            try:
+                student_number = int(input("Enter Student Number"))
+                break
+            except:
+                print("Enter a number")
+
         # TODO 12 find the target student using loops and delete it if exist , if not print ("Student Not Exist")
+        if search_student_number(student_number):
+            students.remove(get_student_form_number(student_number))
+            print("Student Deleted")
+        else:
+            print("Student Not Exist")
+
 
     elif selection == 3:
         student_number = input("Enter Student Number")
