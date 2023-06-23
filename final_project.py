@@ -55,6 +55,7 @@ class Student:
     def get_student_details(self):
         return self.__dict__
 
+
     # method to get_student_courses
     def get_student_courses(self):
         # TODO 6 print student courses with their marks
@@ -194,4 +195,6 @@ while True:
 
     else:
         # TODO 16 call a function to exit the program
-        break
+        exit()
+
+
